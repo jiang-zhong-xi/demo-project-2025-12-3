@@ -23,12 +23,135 @@ Each of these is powered by a **Continue Agent** — no setup required. Just for
 
 ## 🪄 How to Get Started
 
-1. **Fork** this repo to your GitHub account  
-2. **Open Mission Control in the Continue Hub:** [hub.continue.dev](https://hub.continue.dev/agents)  
-3. **[Connect GitHub](https://hub.continue.dev/settings/integrations)**  
+1. **Fork** this repo to your GitHub account   
+2. **Open Mission Control in the Continue Hub:** [hub.continue.dev](https://hub.continue.dev/agents)   
+3. **[Connect GitHub](https://hub.continue.dev/settings/integrations)**   
 4. Run any of the prompts from [`agents.md`](./agents.md)
 
 👉 In under 60 seconds, you’ll have a PR with code changes.
+
+## Installation
+
+To install the project, run the following command:
+
+```bash
+npm install
+```
+
+To install the CLI tool, run the following command:
+
+```bash
+npm install -g demo-project-2025-12-3
+```
+
+## Usage Examples
+
+### Basic Command
+
+```bash
+demo-project-2025-12-3 --help
+```
+
+Output:
+
+```
+Usage: demo-project-2025-12-3 [options]
+
+Options:
+  -v, --version  output the version number
+  -h, --help     display help for command
+```
+
+### Run a Specific Agent
+
+```bash
+demo-project-2025-12-3 run-agent --name bug-fix
+```
+
+Output:
+
+```
+Running bug-fix agent...
+Agent completed successfully
+```
+
+### Check Agent Status
+
+```bash
+demo-project-2025-12-3 status
+```
+
+Output:
+
+```
+Agent Status:
+- bug-fix: completed
+- code-cleanup: pending
+- security-check: pending
+```
+
+## API Reference
+
+### Commands
+
+| Command | Description | Options |
+|---------|-------------|---------|
+| `run-agent` | Run a specific agent | `--name <agent-name>` |
+| `status` | Check agent status | None |
+| `list-agents` | List all available agents | None |
+
+### Configuration
+
+To configure the CLI tool, create a `.demo-project-2025-12-3rc` file in your project root with the following options:
+
+```json
+{
+  "defaultAgent": "bug-fix",
+  "autoUpdate": true,
+  "logLevel": "info"
+}
+```
+
+Available configuration options:
+
+- `defaultAgent`: Set the default agent to run
+- `autoUpdate`: Enable automatic updates (true/false)
+- `logLevel`: Set logging level (info, debug, error)
+
+### Environment Variables
+
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `CONTINUE_API_KEY` | API key for Continue Hub | None |
+| `GITHUB_TOKEN` | Token for GitHub integration | None |
+| `DEBUG_MODE` | Enable debug logging | false |
+
+### Troubleshooting
+
+Common issues and solutions:
+
+1. **Agent not running**:
+   - Check if the agent name is correct
+   - Verify your API key is valid
+   - Ensure you have proper GitHub permissions
+
+2. **Configuration not loading**:
+   - Verify the `.demo-project-2025-12-3rc` file is in your project root
+   - Check for JSON syntax errors
+   - Ensure file permissions are correct
+
+3. **Dependency issues**:
+   - Run `npm install` to ensure all dependencies are installed
+   - Check for version compatibility
+
+### Version Compatibility
+
+| CLI Version | Compatible Node.js Version | Notes |
+|-------------|--------------------------|-------|
+| 1.0.x | 14.x - 18.x | LTS recommended |
+| 1.1.x | 16.x - 20.x | Latest features |
+
+For the most up-to-date information, check the [GitHub releases page](https://github.com/continuedev/continue/releases).
 
 ---
 
